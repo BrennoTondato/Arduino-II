@@ -37,7 +37,7 @@
  
  // Open the port that the Arduino board is connected to (in this case #0) 
  // Make sure to open the port at the same speed Arduino is using (9600bps) 
- port = new Serial(this, Serial.list()[0], 9600); 
+ port = new Serial(this, Serial.list()[3], 9600); 
  
  }
  
@@ -46,14 +46,13 @@
  background(0);
  
  // Test if the cursor is over the box 
- if (mouseX > boxX-boxSize && mouseX < boxX+boxSize && 
- mouseY > boxY-boxSize && mouseY < boxY+boxSize) {
- mouseOverBox = true;  
+ if (mouseX > boxX-boxSize && mouseX < boxX+boxSize && mouseY > boxY-boxSize && mouseY < boxY+boxSize) {
+    mouseOverBox = true;  
  // draw a line around the box and change its color:
- stroke(255); 
- fill(153);
- // send an 'H' to indicate mouse is over square:
- port.write('H');       
+    stroke(255); 
+    fill(153);
+ 
+    port.write('H');       
  } 
  else {
  // return the box to it's inactive state:
